@@ -1,6 +1,4 @@
-# fyrr
-
-# GoPlay
+# fyrr 
 
 INTRODUCTION -->
 “Go Play” is a mobile application interface to help connect people with the sporting activities they enjoy.  This project utlizes several geospatial technologies to create a ‘Mash-up’. 
