@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Go Play! </title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
+
+    <!-- Firebase Reference -->
+    <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+
+    <link href='assets/css/style.css' rel='stylesheet' type='text/css'>
+    <link href='assets/css/final.css' rel='stylesheet' type='text/css'>
+
+    <style>
+
+    </style>
+
+  </head>
+      <body>
+            <div class="container">
+
+              <div class="row">
+
+                  <div class="col-md-4">
+
+                      <h1>Welcom to GoPlay Powered by Google Maps API <a href="">GoPlay.com</a></h1>
+
+                      <div id="map" style="width:auto; height:415px; margin:10 5 10 5; padding: 15px; border: 10px solid #000;"></div>
+
+                  </div><!--End col-md-4  -->
+                </div><!--End ROW  -->
+             </div> <!--End Container  -->
+
+    </body>
+
+
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyAliuFROXxq9K-tkBr7WDMwsJBEPrAMqxY",
+        authDomain: "goplay-f0808.firebaseapp.com",
+        databaseURL: "https://goplay-f0808.firebaseio.com",
+        projectId: "goplay-f0808",
+        storageBucket: "",
+        messagingSenderId: "554942210651"
+      };
+
+      firebase.initializeApp(config);
+
+      var map;
+      var polygonArray = [];
+
+      var locations = [];
+      var database = firebase.database();
+
+      function firebasePolygons (map) {
+
+        // 3. Create Firebase event for adding employee to the database and a row in the html when a user adds an entry
+        database.ref('userInfo/coordinates').on("value", function(childSnapshot, prevChildKey) {
+
+          console.log(childSnapshot.val());
+
+          var poly = childSnapshot.val().name;
+
+        });
+
+      }
+
+
+     function firebaseMarkers (map) {
+
+        // 3. Create Firebase event for adding employee to the database and a row in the html when a user adds an entry
+        database.ref('userInfo/clustermarkers').on("value", function(childSnapshot, prevChildKey) {
+
+          console.log(childSnapshot.val());
+
+        });
+     }
+
+      function initMap() {
+        var myLatlng = new google.maps.LatLng (38.80741,-77.045016);
+
+        var myOptions = {
+         zoom: 14,
+         zoomControl: true,
+         zoomControlOptions: {
+         style: google.maps.ZoomControlStyle.LARGE,
+         position: google.maps.ControlPosition.LEFT_TOP},
+         center: myLatlng,
+         disableDoubleClickZoom: true,
+         panControlOptions: {position: google.maps.ControlPosition.TOP_LEFT},
+         mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+
+        map = new google.maps.Map(document.getElementById('map'), myOptions);
+        //http://jsfiddle.net/geocodezip/qe68usv3/1/
+        var drawingManager = new google.maps.drawing.DrawingManager({
+        drawingMode: google.maps.drawing.OverlayType.POLYGON,
+        drawingControl: true,
+        drawingControlOptions: {
+          position: google.maps.ControlPosition.TOP_CENTER,
+          drawingModes: ['marker', 'polygon']
+        },
+            markerOptions: {icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'},
+            polygonOptions: {
+              fillColor: '#ffff00',
+              fillOpacity: 1,
+              strokeWeight: 5,
+              clickable: false,
+              editable: true,
+              zIndex: 1
+            }
+          });
+
+
+        drawingManager.setMap(map);
+
+        infowindow = new google.maps.InfoWindow;
+
+        map.data.loadGeoJson('http:///Users/antoinebartholomew/Desktop/GoPlay/data.json');
+
+        google.maps.event.addListener(drawingManager, 'polygoncomplete', function(polygon) {
+              var polyLength = polygon.getPath().getLength();
+              // need to empty the arrary each time a polygon is created
+              //   console.log(polyLength);
+              for (var i = 0; i < polyLength; i++) {
+                  var poly = polygon.getPath().getAt(i).toUrlValue(6);
+                  polygonArray.push(poly);
+              }
+              database.ref('userInfo/coordinates').push(polygonArray);
+              console.log(polygonArray);
+          });
+
+          //http://jsfiddle.net/geocodezip/b4orpLv3/2/
+          //https://stackoverflow.com/questions/46261237/add-markers-to-google-maps-that-will-go-into-a-marker-cluster
+
+          var markers = locations.map(function(location, i) {
+            return new google.maps.Marker({
+
+            });
+          });
+
+          function addMarker(location) {
+            var marker = new google.maps.Marker({
+              position: location,
+              map: map
+            });
+            markerCluster.addMarker(marker);
+            database.ref('userInfo/clustermarkers').push(markers);
+          }
+
+          //Add Marker click function
+          map.addListener('dblclick', function(event) {
+            addMarker(event.latLng);
+            markers.lat = event.latLng.lat();
+            markers.lng = event.latLng.lng();
+          //addToFirebase(markers);
+            console.log(locations);
+          });
+
+          // Add a marker cluster to manage the markers.
+          var markerCluster = new MarkerClusterer(map, markers, {
+            imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'
+          });
+
+
+        } // end inti fuction
+
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB1SJ3HV5ZGZkOfwO96Hku1mK2rl3sT_5I&libraries=geometry,drawing&callback=initMap"></script>
+
+    <!-- Link Javascript File -->
+     <script type="text/javascript" src="assets/javascript/app.js"></script>
+     <script type="text/javascript" src="assets/javascript/clustermarkers.js"></script>
+     <script type="text/javascript" src="assets/javascript/clustermarker.js"></script>
+
+
+</html>
