@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/Cellar/node/8.6.0/bin/node /usr/local/bin/yarn install reactstrap
+  /usr/local/Cellar/node/8.6.0/bin/node /usr/local/bin/yarn eject
 
 PATH: 
   /usr/local/opt/mongodb@3.0/bin:/Users/Jon/anaconda/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/mysql/bin
@@ -20,9 +20,11 @@ npm manifest:
     "private": true,
     "dependencies": {
       "axios": "^0.18.0",
+      "google-maps-react": "^2.0.0",
       "react": "^16.3.2",
       "react-dom": "^16.3.2",
-      "react-scripts": "1.1.4"
+      "react-scripts": "1.1.4",
+      "reactstrap": "^5.0.0"
     },
     "scripts": {
       "start": "react-scripts start",
@@ -1481,6 +1483,10 @@ Lockfile:
       isobject "^3.0.0"
       static-extend "^0.1.1"
   
+  classnames@^2.2.3:
+    version "2.2.5"
+    resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.2.5.tgz#fb3801d453467649ef3603c7d61a02bd129bde6d"
+  
   clean-css@4.1.x:
     version "4.1.11"
     resolved "https://registry.yarnpkg.com/clean-css/-/clean-css-4.1.11.tgz#2ecdf145aba38f54740f26cefd0ff3e03e125d6a"
@@ -2104,6 +2110,10 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/dom-converter/-/dom-converter-0.1.4.tgz#a45ef5727b890c9bffe6d7c876e7b19cb0e17f3b"
     dependencies:
       utila "~0.3"
+  
+  dom-helpers@^3.3.1:
+    version "3.3.1"
+    resolved "https://registry.yarnpkg.com/dom-helpers/-/dom-helpers-3.3.1.tgz#fc1a4e15ffdf60ddde03a480a9c0fece821dd4a6"
   
   dom-serializer@0:
     version "0.1.0"
@@ -3060,6 +3070,12 @@ Lockfile:
       pify "^2.0.0"
       pinkie-promise "^2.0.0"
   
+  google-maps-react@^2.0.0:
+    version "2.0.0"
+    resolved "https://registry.yarnpkg.com/google-maps-react/-/google-maps-react-2.0.0.tgz#98c80e4a5b001d50c1d9fd37b6a78d2d0d98efdc"
+    dependencies:
+      invariant "^2.2.1"
+  
   got@^6.7.1:
     version "6.7.1"
     resolved "https://registry.yarnpkg.com/got/-/got-6.7.1.tgz#240cd05785a9a18e561dc1b44b41c763ef1e8db0"
@@ -3478,7 +3494,7 @@ Lockfile:
     version "1.1.0"
     resolved "https://registry.yarnpkg.com/interpret/-/interpret-1.1.0.tgz#7ed1b1410c6a0e0f78cf95d3b8440c63f78b8614"
   
-  invariant@^2.2.2:
+  invariant@^2.2.1, invariant@^2.2.2:
     version "2.2.4"
     resolved "https://registry.yarnpkg.com/invariant/-/invariant-2.2.4.tgz#610f3c92c9359ce1db616e538008d23ff35158e6"
     dependencies:
@@ -4335,6 +4351,14 @@ Lockfile:
     version "4.2.0"
     resolved "https://registry.yarnpkg.com/lodash.defaults/-/lodash.defaults-4.2.0.tgz#d09178716ffea4dde9e5fb7b37f6f0802274580c"
   
+  lodash.isfunction@^3.0.9:
+    version "3.0.9"
+    resolved "https://registry.yarnpkg.com/lodash.isfunction/-/lodash.isfunction-3.0.9.tgz#06de25df4db327ac931981d1bdb067e5af68d051"
+  
+  lodash.isobject@^3.0.2:
+    version "3.0.2"
+    resolved "https://registry.yarnpkg.com/lodash.isobject/-/lodash.isobject-3.0.2.tgz#3c8fb8d5b5bf4bf90ae06e14f2a530a4ed935e1d"
+  
   lodash.memoize@^4.1.2:
     version "4.1.2"
     resolved "https://registry.yarnpkg.com/lodash.memoize/-/lodash.memoize-4.1.2.tgz#bcc6c49a42a2840ed997f323eada5ecd182e0bfe"
@@ -4351,6 +4375,10 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/lodash.templatesettings/-/lodash.templatesettings-4.1.0.tgz#2b4d4e95ba440d915ff08bc899e4553666713316"
     dependencies:
       lodash._reinterpolate "~3.0.0"
+  
+  lodash.tonumber@^4.0.3:
+    version "4.0.3"
+    resolved "https://registry.yarnpkg.com/lodash.tonumber/-/lodash.tonumber-4.0.3.tgz#0b96b31b35672793eb7f5a63ee791f1b9e9025d9"
   
   lodash.uniq@^4.5.0:
     version "4.5.0"
@@ -5121,6 +5149,10 @@ Lockfile:
     version "7.0.0"
     resolved "https://registry.yarnpkg.com/pluralize/-/pluralize-7.0.0.tgz#298b89df8b93b0221dbf421ad2b1b1ea23fc6777"
   
+  popper.js@^1.12.9:
+    version "1.14.3"
+    resolved "https://registry.yarnpkg.com/popper.js/-/popper.js-1.14.3.tgz#1438f98d046acf7b4d78cd502bf418ac64d4f095"
+  
   portfinder@^1.0.9:
     version "1.0.13"
     resolved "https://registry.yarnpkg.com/portfinder/-/portfinder-1.0.13.tgz#bb32ecd87c27104ae6ee44b5a3ccbf0ebb1aede9"
@@ -5475,7 +5507,7 @@ Lockfile:
     dependencies:
       asap "~2.0.3"
   
-  prop-types@^15.5.10, prop-types@^15.6.0:
+  prop-types@^15.5.10, prop-types@^15.5.8, prop-types@^15.6.0, prop-types@^15.6.1:
     version "15.6.1"
     resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.6.1.tgz#36644453564255ddda391191fb3a125cbdf654ca"
     dependencies:
@@ -5639,6 +5671,13 @@ Lockfile:
     version "4.0.0"
     resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-4.0.0.tgz#d198408a85b4070937a98667f500c832f86bd5d4"
   
+  react-popper@^0.8.3:
+    version "0.8.3"
+    resolved "https://registry.yarnpkg.com/react-popper/-/react-popper-0.8.3.tgz#0f73333137c9fb0af6ec4074d2d0585a0a0461e1"
+    dependencies:
+      popper.js "^1.12.9"
+      prop-types "^15.6.0"
+  
   react-scripts@1.1.4:
     version "1.1.4"
     resolved "https://registry.yarnpkg.com/react-scripts/-/react-scripts-1.1.4.tgz#d5c230e707918d6dd2d06f303b10f5222d017c88"
@@ -5684,6 +5723,14 @@ Lockfile:
     optionalDependencies:
       fsevents "^1.1.3"
   
+  react-transition-group@^2.2.1:
+    version "2.3.1"
+    resolved "https://registry.yarnpkg.com/react-transition-group/-/react-transition-group-2.3.1.tgz#31d611b33e143a5e0f2d94c348e026a0f3b474b6"
+    dependencies:
+      dom-helpers "^3.3.1"
+      loose-envify "^1.3.1"
+      prop-types "^15.6.1"
+  
   react@^16.3.2:
     version "16.3.2"
     resolved "https://registry.yarnpkg.com/react/-/react-16.3.2.tgz#fdc8420398533a1e58872f59091b272ce2f91ea9"
@@ -5692,6 +5739,18 @@ Lockfile:
       loose-envify "^1.1.0"
       object-assign "^4.1.1"
       prop-types "^15.6.0"
+  
+  reactstrap@^5.0.0:
+    version "5.0.0"
+    resolved "https://registry.yarnpkg.com/reactstrap/-/reactstrap-5.0.0.tgz#d8948534df4816eddfb162a51643a499388e9228"
+    dependencies:
+      classnames "^2.2.3"
+      lodash.isfunction "^3.0.9"
+      lodash.isobject "^3.0.2"
+      lodash.tonumber "^4.0.3"
+      prop-types "^15.5.8"
+      react-popper "^0.8.3"
+      react-transition-group "^2.2.1"
   
   read-pkg-up@^1.0.1:
     version "1.0.1"
@@ -7299,10 +7358,17 @@ Lockfile:
       window-size "0.1.0"
 
 Trace: 
-  Error: `install` has been replaced with `add` to add new dependencies. Run "yarn add reactstrap" instead.
-      at new MessageError (/usr/local/lib/node_modules/yarn/lib/cli.js:186:110)
-      at Object.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:21987:13)
-      at Generator.next (<anonymous>)
-      at step (/usr/local/lib/node_modules/yarn/lib/cli.js:98:30)
-      at /usr/local/lib/node_modules/yarn/lib/cli.js:109:13
-      at <anonymous>
+  Error: Command failed.
+  Exit code: 1
+  Command: sh
+  Arguments: -c react-scripts eject
+  Directory: /Users/Jon/Desktop/fyrr
+  Output:
+  
+      at ProcessTermError.MessageError (/usr/local/lib/node_modules/yarn/lib/cli.js:186:110)
+      at new ProcessTermError (/usr/local/lib/node_modules/yarn/lib/cli.js:226:113)
+      at ChildProcess.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:30281:17)
+      at emitTwo (events.js:125:13)
+      at ChildProcess.emit (events.js:213:7)
+      at maybeClose (internal/child_process.js:927:16)
+      at Process.ChildProcess._handle.onexit (internal/child_process.js:211:5)
