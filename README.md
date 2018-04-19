@@ -4,10 +4,10 @@ INTRODUCTION -->
 “PROJECT FYRR” is a mobile app that helps people find under-utilized sport and recreational areas.  It's a community-driven database of venues and resources, displayed in a simplified mapping interface. 
 
 THE PROBLEM -->
-Open source base map applications (Google, BING, and Open Street Maps, etc.) do not provide users with detailed information about what infrastructure elements are located within park areas and often fail to correctly identify all park recreational area.
+Exisiting map applications (e.g. Google, BING, Open Street Maps, etc.) are too broad to provide users with detailed information regarding exisiting recreational resources that are availale to them. Oftentimes, non-corporate entities and lesser-known but perfectly excellent venues go unnoticed. 
 
 THE OBJECTIVE -->
-Improved Mapping Capabilities, increased level of detail on open source maps, this mobile application is designed to unlock the details within park areas, and enable uses of the application to find sporting and leisure activity infrastructure quickly and with minimal effort in any park area on the globe.
+Improved Mapping Capabilities, increased level of detail on open source maps, this mobile application is designed to unlock the details within park areas and even one's own neighborhood, and enable uses of the application to find sporting and leisure activity infrastructure quickly, with minimal effort, assisted by their own local communities for any place on the globe!
 
 TECHNOLOGIES USED -->
 HTML, JQuery, CSS (SASS, Grid, Reactstrap), JS/ES6, Google Maps, and MongoDB. 
