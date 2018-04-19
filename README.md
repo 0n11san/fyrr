@@ -1,4 +1,4 @@
-# PROJECT FYRR ("Find Your Recreatioal Resource") --- Final Name Pending
+# PROJECT FYRR: "Find Your Recreatioal Resource" (Final Name Pending)
 
 INTRODUCTION -->
 “PROJECT FYRR” is a mobile app that helps people find under-utilized sport and recreational areas.  It's a community-driven database of venues and resources, displayed in a simplified mapping interface. 
