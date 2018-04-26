@@ -1,0 +1,45 @@
+IDEA
+-basically 'Waze' for recreation (starting w/ dog parks and playgrounds; eventually add basketball courts/soccer fields/pools etc)
+-community-based/crowd-sourced 
+-fitness/recreational 
+-indicator/finder/map
+
+POSSIBLE DOMAIN NAMES
+'fyrr' - find your recreational resource (.io $60; .co $30; .in $12; .fr $10; )
+fit.io / .com
+serf.io - SourcEd Recreational Finder
+CURIO - CommUnity Recreational IndicatOr
+recreational.fitness - $30
+
+OTHER NAMES WE COULD MAYBE WORK AROUND 
+GYM TTD - giving you more things to do
+STAGE - stuff that's available
+PAARK/PARC/PARKK - pinpoint activity/athletic/& recreation/registry client
+FIELD - finding exercise locally derived
+OU(T)SIDE - organized user (tested) sourced index of entertainment
+
+UI/UX
+icons - https://www.flaticon.com/collections/MzA5NTIyMQ==
+images - https://unsplash.com/collections/1994953/rec
+
+FUTURE ADDITIONS
+age filters
+user submitted pictures
+playdate coordination 
+
+DB SCHEMA
+type: e.g. playground, dog park, soccer field etc
+age filter: e.g. children, n/a
+hours: e.g. daylight
+access: e.g. public; membership, tenant/resident
+url: if available 
+
+
+TECH
+recompose.js
+
+
+QUESTIONS
+-what is purpose of having both polygon and flag/pinpoint? would it be more user friendly (especially on mobile)  to just have flags and then ask user for approximate size of area (giving pre-set ranges; then running a script which determines whether the same query has already been made ---- i.e. if a playground is marked in the same area, the app won't make two duplicative areas, however, if a different type like a basketball court is marked, the app will allow the addition...)
+
+

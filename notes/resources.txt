@@ -1,0 +1,13 @@
+
+
+authentication (sometimes the trickiest part):
+-passportJ
+-octa
+-google authentication
+
+
+gliffy
+sketch
+
+
+can host on AWS and avoid 'not secure' flag
